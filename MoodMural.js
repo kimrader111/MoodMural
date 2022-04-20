@@ -1073,8 +1073,15 @@ function changeBG() {
 
 function saveDrawing() {
   // saveCanvas("TodaysMood", "jpg");
-  lastImage = canvas.elt.toDataURL("image/jpeg", 1.0);
-  image(canvas, 0, 0, 300, 300);
+  
+  let resized = createGraphics(width/3,height/3);
+  resized.image(canvas, 0, 0, width/3, height/3);
+  resized.loadPixels();
+  
+  // background("pink");
+  
+  lastImage = resized.elt.toDataURL("image/jpeg", 1.0);
+  // image(resized, 0, 0, 300, 300);
   
   $.ajax({
   method: "POST",
@@ -1082,11 +1089,9 @@ function saveDrawing() {
   data: { name: (caption.value()), email: (email.value()), image: lastImage }
   })
   .done(function( msg ) {
-    alert( "Data Saved: " + msg );
-    
+    alert( "Data Saved: " + msg );   
   });
 } 
-
   // https://openprocessing.org/sketch/1278485
   function randPattern(t) {
     const ptArr = [
