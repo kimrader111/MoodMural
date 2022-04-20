@@ -48,7 +48,6 @@ let squares = true;
 let triangles = true;
 let current;
 let size = 90;
-//lecoace = 100;
 let rows = 10;
 let columns = 10;
 let minS = 20;
