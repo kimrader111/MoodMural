@@ -57,7 +57,7 @@ var drawing = [];
 let canvas;
 let lastImage;
 let caption;
-
+let timeStamp;
 
 //Using library minimalPerfectSquaredSquares by Tetsunori Nakayama https://github.com/tetunori/minimalPerfectSquaredSquares
 
@@ -78,14 +78,15 @@ const MPASS_MODES = [
 //random seed number
 let SEED_NUM;
 
-// set this to true when you're done asking questions
+// change this when you're done asking questions
 let questions = true;
 
 function setup() {
   canvas = createCanvas(1080, 1080);
   background(255);
   strokeWeight(0);
-  textSize(18);
+  textFont("sans-serif");
+  textSize(12);
   textStyle(BOLD);
   canvas.parent("canvascontainer");
 
@@ -111,6 +112,8 @@ function setup() {
 
   //Question 1
   radio = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   radio.option(1, "Good Day");
   radio.option(2, "Bad Day");
   radio.option(3, "Neither");
@@ -119,6 +122,8 @@ function setup() {
 
   //Question 2A
   positive = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   positive.option(1, "Accepted/Valued");
   positive.option(2, "Loving");
   positive.option(3, "Excited");
@@ -131,6 +136,8 @@ function setup() {
 
   //Question 2B
   negative = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   negative.option(1, "Afraid");
   negative.option(2, "Sad");
   negative.option(3, "Dislike");
@@ -143,6 +150,8 @@ function setup() {
 
   //Question 2C
   neither = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   neither.option(1, "Indifferent/Apathetic");
   neither.option(2, "Bored");
   neither.option(3, "Numb/Empty");
@@ -153,6 +162,8 @@ function setup() {
 
   //Question 3A
   accepted = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   accepted.option(1, "Needed/Wanted");
   accepted.option(2, "Attractive");
   accepted.option(3, "Loved");
@@ -161,12 +172,14 @@ function setup() {
   accepted.option(6, "Popular/Admired");
   accepted.option(7, "Cooperative/Helpful");
   accepted.option(8, "Respected");
-  accepted.style("width", "700px");
+  accepted.style("width", "570px");
   accepted.position(10, 190);
   accepted.hide();
 
   //Question 3B
   loving = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   loving.option(1, "Joyful");
   loving.option(2, "Thankful");
   loving.option(3, "Content");
@@ -176,12 +189,14 @@ function setup() {
   loving.option(7, "Accepting");
   loving.option(8, "Humble");
   loving.option(9, "Generous");
-  loving.style("width", "770px");
+  loving.style("width", "540px");
   loving.position(10, 190);
   loving.hide();
 
   //Question 3C
   excited = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   excited.option(1, "Amazed");
   excited.option(2, "Surprised");
   excited.option(3, "Energetic/Enthusiastic");
@@ -189,12 +204,14 @@ function setup() {
   excited.option(5, "Moved");
   excited.option(6, "Expectant");
   excited.option(7, "Charged");
-  excited.style("width", "770px");
+  excited.style("width", "480px");
   excited.position(10, 190);
   excited.hide();
 
   //Question 3D
   interested = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   interested.option(1, "Sensitive/Responsive");
   interested.option(2, "Intrigued");
   interested.option(3, "Allured/Enticed");
@@ -203,12 +220,14 @@ function setup() {
   interested.option(6, "Creative/Inspired");
   interested.option(7, "Curious");
   interested.option(8, "Playful");
-  interested.style("width", "660px");
+  interested.style("width", "520px");
   interested.position(10, 190);
   interested.hide();
 
   //Question 3E
   confident = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   confident.option(1, "Trusting");
   confident.option(2, "Positive");
   confident.option(3, "Fearless");
@@ -217,24 +236,28 @@ function setup() {
   confident.option(6, "Bold/Brave");
   confident.option(7, "Powerful");
   confident.option(8, "Proud");
-  confident.style("width", "770px");
+  confident.style("width", "460px");
   confident.position(10, 190);
   confident.hide();
 
   //Question 3F
   happy = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   happy.option(1, "Joyful/Delighted");
   happy.option(2, "Euphoric/Elated");
   happy.option(3, "Cheerful/Playful");
   happy.option(4, "Content/Satisfied");
   happy.option(5, "Optimistic/Enthusiastic");
   happy.option(6, "Peaceful/Tranquil");
-  happy.style("width", "700px");
+  happy.style("width", "520px");
   happy.position(10, 190);
   happy.hide();
 
   //Question 3G
   afraid = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   afraid.option(1, "Helpless");
   afraid.option(2, "Threatened");
   afraid.option(3, "Confused");
@@ -242,12 +265,14 @@ function setup() {
   afraid.option(5, "Worried/Anxious");
   afraid.option(6, "Stressed/Overwhelmed");
   afraid.option(7, "Apprehensive/Nervous");
-  afraid.style("width", "700px");
+  afraid.style("width", "520px");
   afraid.position(10, 190);
   afraid.hide();
 
   //Question 3H
   sad = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   sad.option(1, "Depressed");
   sad.option(2, "Hurt");
   sad.option(3, "Bereft/Inconsolable");
@@ -255,58 +280,66 @@ function setup() {
   sad.option(5, "Subdued/Gloomy");
   sad.option(6, "Aggrieved");
   sad.option(7, "Discouraged");
-  sad.style("width", "800px");
+  sad.style("width", "460px");
   sad.position(10, 190);
   sad.hide();
 
   //Question 3I
   dislike = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   dislike.option(1, "Dismissive/Disdainful");
   dislike.option(2, "Disgusted");
   dislike.option(3, "Suspicious");
   dislike.option(4, "Appalled");
   dislike.option(5, "Repelled/Loathing");
   dislike.option(6, "Skeptical/Disapproving");
-  dislike.style("width", "770px");
+  dislike.style("width", "440px");
   dislike.position(10, 190);
   dislike.hide();
 
   //Question 3J
   alone = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   alone.option(1, "Distant/Withdrawn");
   alone.option(2, "Lonely");
   alone.option(3, "Excluded");
   alone.option(4, "Fragile/Vulnerable");
   alone.option(5, "Rejected/Friendless");
   alone.option(6, "Desolate");
-  alone.style("width", "770px");
+  alone.style("width", "440px");
   alone.position(10, 190);
   alone.hide();
 
   //Question 3K
   angry = createRadio();
-  angry.option(1, "Offended/Insulted");
+  textFont("sans-serif");
+  textSize(12);
+  angry.option(1, "Resentful/Jealous");
   angry.option(2, "Indignant/Outraged");
-  angry.option(3, "Dismayed/Betrayed");
-  angry.option(4, "Bitter/Resentful/Jealous");
-  angry.option(5, "Frustrated/Annoyed");
-  angry.option(6, "Aggressive/Hostile");
+  angry.option(3, "Frustrated/Annoyed");
+  angry.option(4, "Aggressive/Hostile");
+  angry.option(5, "Dismayed/Betrayed");
+  angry.option(6, "Rushed/Pressured");
   angry.option(7, "Harassed/Persecuted");
   angry.option(8, "Bored/Indifferent");
-  angry.option(9, "Rushed/Pressured");
-  angry.style("width", "770px");
+  angry.option(9, "Offended/Insulted");
+  angry.style("width", "440px");
   angry.position(10, 190);
   angry.hide();
 
   //Question 3L
   embarrassed = createRadio();
+  textFont("sans-serif");
+  textSize(12);
   embarrassed.option(1, "Humiliated");
   embarrassed.option(2, "Worthless");
   embarrassed.option(3, "Guilty/Regret");
   embarrassed.option(4, "Sheepish");
   embarrassed.option(5, "Ashamed");
   embarrassed.option(6, "Inferior");
-  embarrassed.style("width", "770px");
+  embarrassed.style("width", "700px");
   embarrassed.position(10, 190);
   embarrassed.hide();
 
@@ -340,7 +373,7 @@ function setup() {
   talk.position(10, 800);
   talk.style("width", "600px");
 
- //Question 10
+  //Question 10
   outside = createRadio();
   outside.option(1, "yes");
   outside.option(2, "no");
@@ -348,20 +381,20 @@ function setup() {
   outside.position(10, 900);
 
   // Email address
-  email = createInput();
-  email.position(10, 980);
-  button = createButton("enter");
-  button.position(email.x + email.width, 980);
+  // email = createInput();
+  // email.position(10, 980);
+  // button = createButton("enter");
+  // button.position(email.x + email.width, 980);
 
   // Caption
-  caption = createInput();
-  caption.position(400, 980);
-  buttonb = createButton("enter");
-  buttonb.position(caption.x + caption.width, 980);
+  // caption = createInput();
+  // caption.position(400, 980);
+  // buttonb = createButton("enter");
+  // buttonb.position(caption.x + caption.width, 980);
 
   //Submit button
   submit = createButton("Create Your Design");
-  submit.position(10, 1040);
+  submit.position(10, 950);
   submit.mousePressed(changeBG);
 
   //set up color arrays
@@ -494,8 +527,8 @@ function draw() {
     text("Did you move or exercise today?", 10, 690);
     text("Have you talked or texted with family or friends today?", 10, 790);
     text("Have you been outside today?", 10, 890);
-    text("Your email - optional", 10, 970);
-    text("Add a caption or Instagram username", 400, 970);
+    // text("Your email - optional", 10, 970);
+    // text("Add a caption or Instagram username", 400, 970);
 
     textSize(12);
     textStyle(NORMAL);
@@ -573,7 +606,11 @@ function draw() {
       console.log("Accepted/Valued");
       textSize(18);
       textStyle(BOLD);
-      text("How would you describe your feeling of acceptance and value?", 10, 175);
+      text(
+        "How would you describe your feeling of acceptance and value?",
+        10,
+        175
+      );
       current = posaccepted;
       accepted.show();
       loving.hide();
@@ -715,9 +752,9 @@ function draw() {
       alone.hide();
       angry.hide();
       embarrassed.show();
-      }  
-        
-      if (neither.value() == 1) {
+    }
+
+    if (neither.value() == 1) {
       console.log("Indifferent/Apathetic");
       current = mehindifferent;
     } else if (neither.value() == 2) {
@@ -730,7 +767,6 @@ function draw() {
       console.log("Withdrawn/Distant");
       current = mehwithdrawn;
     }
-    
   } else {
     // draw all the pretty things here.
     console.log("anxious", anxious.value());
@@ -742,8 +778,8 @@ function draw() {
     console.log("communicate", talk.value());
     anxiety = anxious.value() * 10;
     console.log("dots", anxiety);
-    console.log("email", email.value());
-    console.log("caption", caption.value());
+    // console.log("email", email.value());
+    // console.log("caption", caption.value());
 
     //circles - thanks to Roni Kauffman
     //https://openprocessing.org/sketch/1151289
@@ -898,7 +934,7 @@ function draw() {
       fill(255);
       circle(random(width), random(width), random(anxiety / 2));
     }
-    for (let com = 0; com < talk.value()*2; com++) {
+    for (let com = 0; com < talk.value() * 2; com++) {
       strokeWeight(2);
       stroke(255);
       line(random(width), 0, random(width), width);
@@ -922,7 +958,7 @@ function draw() {
       fill(random(current));
       rect(x, y, w, h);
     }
-    
+
     function DrawTriangleNW(x, y, w, h) {
       shuffle(current, true);
       DrawTriangle(x, y, x, y + h, x + w, y);
@@ -1062,50 +1098,45 @@ function changeBG() {
   outside.hide();
   talk.hide();
   submit.hide();
-  email.hide();
-  button.hide();
-  caption.hide();
-  buttonb.hide();
+  // email.hide();
+  // button.hide();
+  // caption.hide();
+  // buttonb.hide();
 
   // record that we are done asking questions
   questions = false;
 }
 
 function saveDrawing() {
-  // saveCanvas("TodaysMood", "jpg");
-  
-  let resized = createGraphics(width/3,height/3);
-  resized.image(canvas, 0, 0, width/3, height/3);
+let timeStamp = year() + "-" + month() + "-" + day() + "-" + hour() + "-" + minute() + "-" + second() + "-" + nf(millis(), 3, 0);  saveCanvas(timeStamp, "jpg");
+  let resized = createGraphics(width / 3, height / 3);
+  resized.image(canvas, 0, 0, width / 3, height / 3);
   resized.loadPixels();
-  
-  // background("pink");
-  
+
   lastImage = resized.elt.toDataURL("image/jpeg", 1.0);
-  // image(resized, 0, 0, 300, 300);
-  
+
   $.ajax({
-  method: "POST",
-  url: "https://josh-miller.com/kim/insert.php",
-  data: { name: (caption.value()), email: (email.value()), image: lastImage }
-  })
-  .done(function( msg ) {
-    alert( "Data Saved: " + msg );   
+    method: "POST",
+    url: "https://josh-miller.com/kim/insert.php",
+    data: { name: timeStamp, email: "X", image: lastImage },
+  }).done(function (msg) {
+    alert("Data Saved: " + msg);
   });
-} 
-  // https://openprocessing.org/sketch/1278485
-  function randPattern(t) {
-    const ptArr = [
-      PTN.noise(0.5),
-      PTN.noiseGrad(0.4),
-      PTN.stripe(t / int(random(6, 12))),
-      PTN.stripeCircle(t / int(random(6, 12))),
-      PTN.stripePolygon(int(random(3, 7)), int(random(6, 12))),
-      PTN.stripeRadial(TAU / int(random(6, 30))),
-      PTN.wave(t / int(random(1, 3)), t / int(random(10, 20)), t / 5, t / 10),
-      PTN.dot(t / 10, (t / 10) * random(0.2, 1)),
-      PTN.checked(t / int(random(5, 20)), t / int(random(5, 20))),
-      PTN.cross(t / int(random(10, 20)), t / int(random(20, 40))),
-      PTN.triangle(t / int(random(5, 20)), t / int(random(5, 20))),
-    ];
-    return random(ptArr);
-  }
+}
+// https://openprocessing.org/sketch/1278485
+function randPattern(t) {
+  const ptArr = [
+    PTN.noise(0.5),
+    PTN.noiseGrad(0.4),
+    PTN.stripe(t / int(random(6, 12))),
+    PTN.stripeCircle(t / int(random(6, 12))),
+    PTN.stripePolygon(int(random(3, 7)), int(random(6, 12))),
+    PTN.stripeRadial(TAU / int(random(6, 30))),
+    PTN.wave(t / int(random(1, 3)), t / int(random(10, 20)), t / 5, t / 10),
+    PTN.dot(t / 10, (t / 10) * random(0.2, 1)),
+    PTN.checked(t / int(random(5, 20)), t / int(random(5, 20))),
+    PTN.cross(t / int(random(10, 20)), t / int(random(20, 40))),
+    PTN.triangle(t / int(random(5, 20)), t / int(random(5, 20))),
+  ];
+  return random(ptArr);
+}
