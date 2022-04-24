@@ -130,7 +130,7 @@ function setup() {
   positive.option(4, "Interested");
   positive.option(5, "Confident");
   positive.option(6, "Happy");
-  positive.style("width", "770px");
+  positive.style("width", "1080px");
   positive.position(10, 115);
   positive.hide();
 
@@ -144,7 +144,7 @@ function setup() {
   negative.option(4, "Alone");
   negative.option(5, "Angry");
   negative.option(6, "Embarrassed");
-  negative.style("width", "770px");
+  negative.style("width", "1080px");
   negative.position(10, 115);
   negative.hide();
 
@@ -156,7 +156,7 @@ function setup() {
   neither.option(2, "Bored");
   neither.option(3, "Numb/Empty");
   neither.option(4, "Withdrawn/Distant");
-  neither.style("width", "770px");
+  neither.style("width", "1080px");
   neither.position(10, 115);
   neither.hide();
 
@@ -167,12 +167,12 @@ function setup() {
   accepted.option(1, "Needed/Wanted");
   accepted.option(2, "Attractive");
   accepted.option(3, "Loved");
-  accepted.option(4, "Cherished/Precious");
-  accepted.option(5, "Important/Esteemed");
+  accepted.option(4, "Cherished");
+  accepted.option(5, "Important");
   accepted.option(6, "Popular/Admired");
-  accepted.option(7, "Cooperative/Helpful");
+  accepted.option(7, "Cooperative");
   accepted.option(8, "Respected");
-  accepted.style("width", "570px");
+  accepted.style("width", "1080px");
   accepted.position(10, 190);
   accepted.hide();
 
@@ -189,7 +189,7 @@ function setup() {
   loving.option(7, "Accepting");
   loving.option(8, "Humble");
   loving.option(9, "Generous");
-  loving.style("width", "540px");
+  loving.style("width", "1080px");
   loving.position(10, 190);
   loving.hide();
 
@@ -204,7 +204,7 @@ function setup() {
   excited.option(5, "Moved");
   excited.option(6, "Expectant");
   excited.option(7, "Charged");
-  excited.style("width", "480px");
+  excited.style("width", "1080px");
   excited.position(10, 190);
   excited.hide();
 
@@ -212,7 +212,7 @@ function setup() {
   interested = createRadio();
   textFont("sans-serif");
   textSize(12);
-  interested.option(1, "Sensitive/Responsive");
+  interested.option(1, "Sensitive/Receptive");
   interested.option(2, "Intrigued");
   interested.option(3, "Allured/Enticed");
   interested.option(4, "Intimate/Romantic");
@@ -220,7 +220,7 @@ function setup() {
   interested.option(6, "Creative/Inspired");
   interested.option(7, "Curious");
   interested.option(8, "Playful");
-  interested.style("width", "520px");
+  interested.style("width", "1080px");
   interested.position(10, 190);
   interested.hide();
 
@@ -236,7 +236,7 @@ function setup() {
   confident.option(6, "Bold/Brave");
   confident.option(7, "Powerful");
   confident.option(8, "Proud");
-  confident.style("width", "460px");
+  confident.style("width", "1080px");
   confident.position(10, 190);
   confident.hide();
 
@@ -250,7 +250,7 @@ function setup() {
   happy.option(4, "Content/Satisfied");
   happy.option(5, "Optimistic/Enthusiastic");
   happy.option(6, "Peaceful/Tranquil");
-  happy.style("width", "520px");
+  happy.style("width", "1080px");
   happy.position(10, 190);
   happy.hide();
 
@@ -265,7 +265,7 @@ function setup() {
   afraid.option(5, "Worried/Anxious");
   afraid.option(6, "Stressed/Overwhelmed");
   afraid.option(7, "Apprehensive/Nervous");
-  afraid.style("width", "520px");
+  afraid.style("width", "1080px");
   afraid.position(10, 190);
   afraid.hide();
 
@@ -280,7 +280,7 @@ function setup() {
   sad.option(5, "Subdued/Gloomy");
   sad.option(6, "Aggrieved");
   sad.option(7, "Discouraged");
-  sad.style("width", "460px");
+  sad.style("width", "1080px");
   sad.position(10, 190);
   sad.hide();
 
@@ -293,8 +293,8 @@ function setup() {
   dislike.option(3, "Suspicious");
   dislike.option(4, "Appalled");
   dislike.option(5, "Repelled/Loathing");
-  dislike.option(6, "Skeptical/Disapproving");
-  dislike.style("width", "440px");
+  dislike.option(6, "Skeptical/Critical");
+  dislike.style("width", "1080px");
   dislike.position(10, 190);
   dislike.hide();
 
@@ -308,7 +308,7 @@ function setup() {
   alone.option(4, "Fragile/Vulnerable");
   alone.option(5, "Rejected/Friendless");
   alone.option(6, "Desolate");
-  alone.style("width", "440px");
+  alone.style("width", "1080px");
   alone.position(10, 190);
   alone.hide();
 
@@ -316,16 +316,16 @@ function setup() {
   angry = createRadio();
   textFont("sans-serif");
   textSize(12);
-  angry.option(1, "Resentful/Jealous");
-  angry.option(2, "Indignant/Outraged");
-  angry.option(3, "Frustrated/Annoyed");
-  angry.option(4, "Aggressive/Hostile");
-  angry.option(5, "Dismayed/Betrayed");
-  angry.option(6, "Rushed/Pressured");
-  angry.option(7, "Harassed/Persecuted");
-  angry.option(8, "Bored/Indifferent");
-  angry.option(9, "Offended/Insulted");
-  angry.style("width", "440px");
+  angry.option(1, "Bitter");
+  angry.option(2, "Indignant");
+  angry.option(3, "Frustrated");
+  angry.option(4, "Aggressive");
+  angry.option(5, "Dismayed");
+  angry.option(6, "Rushed");
+  angry.option(7, "Harassed");
+  angry.option(8, "Bored");
+  angry.option(9, "Offended");
+  angry.style("width", "1080px");
   angry.position(10, 190);
   angry.hide();
 
@@ -339,7 +339,7 @@ function setup() {
   embarrassed.option(4, "Sheepish");
   embarrassed.option(5, "Ashamed");
   embarrassed.option(6, "Inferior");
-  embarrassed.style("width", "700px");
+  embarrassed.style("width", "1080px");
   embarrassed.position(10, 190);
   embarrassed.hide();
 
